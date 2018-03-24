@@ -3,12 +3,14 @@ html {
   font-family: arial, sans-serif;
   color: #1f1f1f;
   font-size: 13px;
+  float: right;
 }
 
 body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  width: 100vw;
 }
 
 a {
@@ -37,6 +39,125 @@ header {
 
 header > a {
    padding-left: 15px;
+}
+
+.mobile {
+   display: none;
+}
+
+.mobileMenu {
+   position: fixed;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   top: 0;
+   left: 0;
+   width: 100%;
+   max-width: 300px;
+   height:  100vh;
+   z-index: 2;
+   border-right: 1px solid #c6c6c6;
+   background: #FFF;
+   -ms-transform: translateX(-100%);
+   -webkit-transform: translateX(-100%);
+   transform: translateX(-100%);
+   transition: all 0.3s linear;
+}
+
+.mobileMenu.open {
+   transform: translateX(0);
+}
+
+.mobileMenu .close {
+   position: absolute;
+   width: 15px;
+   top: 10px;
+   right: 15px;
+   z-index: 3;
+   cursor: pointer;
+}
+
+.mobileMenu .close:hover path {
+   fill: #000;
+}
+
+
+.mobileMenu .header{
+   background-color: #e0e0e0;
+   padding: 20px;
+   position: relative;
+   border-bottom: 1px solid #c6c6c6;
+}
+
+.mobileMenu .header .icons {
+   bottom: 0;
+   position: absolute;
+   right: 10px;
+}
+
+.mobileMenu .header .profilePhotoBig{
+   max-width: 85px;
+   width: 30%;
+   cursor: pointer;
+   display: inline-block;
+}
+
+.mobileMenu .header .data{
+   display: inline-block;
+   margin-left: 10px;
+   vertical-align: baseline;
+   color: #686868;
+}
+
+.mobileMenu .header .data .username {
+   font-weight: bold;
+   font-size: 15px;
+}
+
+.mobileMenu .links {
+   list-style: none;
+   -webkit-margin-before: 0em;
+   -webkit-margin-after: 0em;
+   -webkit-margin-start: 0px;
+   -webkit-margin-end: 0px;
+   -webkit-padding-start: 0px;
+}
+
+.mobile .links li {
+   padding: 10px 20px;
+   background-color: #F2F2F2;
+   border-top: 1px solid #F2F2F2;
+   border-bottom: 1px solid #F2F2F2;
+}
+
+.mobile .links li:hover {
+   border-top: 1px solid #c6c6c6;
+   border-bottom: 1px solid #c6c6c6;
+}
+
+.mobile .links li.divider {
+   background-color: #FFF;
+   border-top: 1px solid #FFF;
+   border-bottom: 1px solid #FFF;
+   padding: 5px;
+}
+
+.hamburguer {
+   position: fixed;
+   width: 30px;
+   top: 30px;
+   left: 30px;
+   cursor: pointer;
+   z-index: 1;
+}
+
+.hamburguer rect {
+   fill: #686868;
+   transition: all 0.2s linear;
+}
+
+.hamburguer:hover rect {
+   fill: #000;
 }
 
 .bellIcon {
@@ -160,4 +281,33 @@ footer {
 
 .rightMenu a {
    padding-right: 27px;
+}
+
+
+@media (max-width: 1023px) {
+   .desktop {
+      display: none;
+   }
+
+   .mobile {
+      display: block;
+   }
+
+   .inputWrapper {
+      width: 80vw;
+   }
+
+   .button {
+      display: block;
+      margin: 0 0 10px;
+   }
+
+   .button:last-child {
+      margin: 0;
+   }
+
+   .offered .langs {
+      margin-top: 10px;
+      display: block;
+   }
 }
